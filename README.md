@@ -139,7 +139,7 @@ The application uses a two-phase approach:
 
 ## Usage Example
 
-When you run the application, you'll be prompted for inputs in this exact order:
+When you run the application (V1.0), you'll be prompted for inputs in this exact order:
 
 ```bash
 Input number of iterations: 100
@@ -152,6 +152,8 @@ Input the variable name: x
 Root: -2.0
 Iterations: 47
 ```
+
+V2.0 Uses a GUI with the same inputs.
 
 ### Input Parameters Explained
 
