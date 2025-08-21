@@ -94,6 +94,13 @@ public class Main {
 
     }
 
+    double findRoot(int iterations, double tolerance, double upper, double lower){
+        //TODO move main code here.
+
+        return 0.0; //temp
+    }
+
+
     private static double evaluate(double f){
         expr.setVariable(String.valueOf(varName), f);
         return expr.evaluate();
