@@ -13,7 +13,7 @@ public class Main {
 
     public static void main(String[] args) {
         int iterations = 0;
-        double tolerance = 0, step = 0, start = 0, end = 0;
+        double tolerance = 0.0000000000001, step = 0, start = 0, end = 0;
         double lower, upper;
 
         // calc f(a), f(b)
@@ -59,30 +59,36 @@ public class Main {
             }
         }
 
-        try {
-            expr = new ExpressionBuilder(expression).variables(String.valueOf(varName)).build();
-        } catch (UnknownFunctionOrVariableException e){
-            System.out.println(e.getMessage());
-            return;
-        }
+        if(!buildExpression(expression, varName)) return; // important
 
-
-        double[] rangeArr = findLimits(step, start, end);
+        double[] rangeArr = findLimits(step, start, end); //important
 
         if(rangeArr == null){
             System.out.printf("No continuity in range %f, %f", start, step);
             return;
         }
+
         lower = rangeArr[0];
         upper = rangeArr[1];
 
-        double[] details = findRoot(iterations, tolerance, upper, lower);
+        double[] details = findRoot(iterations, tolerance, upper, lower); //important
+
         if (details == null){
             System.out.println("Some error occurred");
             return;
         }
         System.out.println("Root: " + details[0]);
         System.out.println("Iterations: " + details[1]);
+    }
+
+    static boolean buildExpression(String expression, char varName){
+        try {
+            expr = new ExpressionBuilder(expression).variables(String.valueOf(varName)).build();
+        }catch(UnknownFunctionOrVariableException e){
+            System.out.println(e.getMessage());
+            return false; //build failed
+        }
+        return true;
     }
 
     static double[] findRoot(int iterations, double tolerance, double upper, double lower){
@@ -98,7 +104,7 @@ public class Main {
                 else lower = mid;
             }
         }
-        return null; //on failure
+        return null;
     }
 
 
