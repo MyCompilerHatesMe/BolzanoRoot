@@ -14,7 +14,6 @@ public class Main {
     public static void main(String[] args) {
         int iterations = 0;
         double tolerance = 0, step = 0, start = 0, end = 0;
-
         double lower, upper;
 
         // calc f(a), f(b)
@@ -66,38 +65,40 @@ public class Main {
             System.out.println(e.getMessage());
             return;
         }
+
+
         double[] rangeArr = findLimits(step, start, end);
 
         if(rangeArr == null){
-            System.err.println("No continuity in range -100, 100");
+            System.out.printf("No continuity in range %f, %f", start, step);
             return;
         }
         lower = rangeArr[0];
         upper = rangeArr[1];
 
+        double[] details = findRoot(iterations, tolerance, upper, lower);
+        if (details == null){
+            System.out.println("Some error occurred");
+            return;
+        }
+        System.out.println("Root: " + details[0]);
+        System.out.println("Iterations: " + details[1]);
+    }
+
+    static double[] findRoot(int iterations, double tolerance, double upper, double lower){
         for(int i = 0; i < iterations; i++) {
             double mid = (lower+upper)/2;
-
             double fLower = evaluate(lower);
             double fMid = evaluate(mid);
-
             if(Math.abs(fMid) <= tolerance){
-                System.out.println("Root: " + mid);
-                System.out.println("Iterations: " + i);
-                return;
+                return new double[] {mid, i};
             }
             else{
                 if(fLower * fMid < 0) upper = mid;
                 else lower = mid;
             }
         }
-
-    }
-
-    double findRoot(int iterations, double tolerance, double upper, double lower){
-        //TODO move main code here.
-
-        return 0.0; //temp
+        return null; //on failure
     }
 
 
