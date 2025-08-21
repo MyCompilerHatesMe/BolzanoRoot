@@ -31,7 +31,7 @@ java {
 
 application {
     // Define the main class for the application.
-    mainClass.set("mchm.Main")
+    mainClass.set("mchm.GuiWrapper")
 }
 
 tasks.named<JavaExec>("run"){
@@ -40,14 +40,14 @@ tasks.named<JavaExec>("run"){
 
 tasks.jar {
     manifest {
-        attributes["Main-Class"] = "mchm.Main"
+        attributes["Main-Class"] = "mchm.GuiWrapper"
     }
 }
 tasks.register<Jar>("fatJar") {
     archiveClassifier.set("fat")
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     manifest {
-        attributes["Main-Class"] = "mchm.Main" // replace with your main class
+        attributes["Main-Class"] = "mchm.GuiWrapper" // replace with your main class
     }
     from(sourceSets.main.get().output)
     // Include runtime dependencies

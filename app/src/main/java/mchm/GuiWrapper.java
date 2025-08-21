@@ -108,7 +108,7 @@ class Panel extends JPanel{
                 if(results[2] == 3) errorLabel.setText("No continuous region found between " + lowerLimitStr + " " + upperLimitStr);
                 if(results[2] == 4) errorLabel.setText("Error occurred in finding roots");
             }else{
-                output1.setText(String.format("Roots: %.20f", results[0]));
+                output1.setText(String.format("Roots: %.16f", results[0]));
                 output2.setText("Iterations: " + (int) results[1]);
                 errorLabel.setText("");
             }
