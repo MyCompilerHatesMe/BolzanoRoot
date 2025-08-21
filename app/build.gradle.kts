@@ -7,14 +7,11 @@
 
 import org.gradle.jvm.tasks.Jar
 
-
 plugins {
-    // Apply the application plugin to add support for building a CLI application in Java.
     application
 }
 
 repositories {
-    // Use Maven Central for resolving dependencies.
     mavenCentral()
 }
 
@@ -22,7 +19,6 @@ dependencies {
     implementation("net.objecthunter:exp4j:0.4.8")
 }
 
-// Apply a specific Java toolchain to ease working on different environments.
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(21)
@@ -30,27 +26,21 @@ java {
 }
 
 application {
-    // Define the main class for the application.
     mainClass.set("mchm.GuiWrapper")
 }
 
-tasks.named<JavaExec>("run"){
+tasks.named<JavaExec>("run") {
     standardInput = System.`in`
 }
 
-tasks.jar {
-    manifest {
-        attributes["Main-Class"] = "mchm.GuiWrapper"
-    }
-}
+
 tasks.register<Jar>("fatJar") {
     archiveClassifier.set("fat")
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     manifest {
-        attributes["Main-Class"] = "mchm.GuiWrapper" // replace with your main class
+        attributes["Main-Class"] = "mchm.GuiWrapper"
     }
     from(sourceSets.main.get().output)
-    // Include runtime dependencies
     dependsOn(configurations.runtimeClasspath)
     from({
         configurations.runtimeClasspath.get()
