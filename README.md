@@ -1,6 +1,6 @@
 # Bisection Method Root Finder
 
-A Java application that finds roots of continuous functions using the bisection method, based on Bolzano's theorem (Intermediate Value Theorem). This tool allows you to input mathematical expressions and automatically locate their zeros within a specified interval.
+A Java application that finds roots of continuous functions using the bisection method, based on Bolzano's theorem (Intermediate Value Theorem). This tool allows you to input mathematical expressions and automatically locate their first zero within a specified interval.
 
 ## Features
 
