@@ -20,8 +20,8 @@ A Java application that finds roots of continuous functions using the bisection 
 ### Option 2: Build from Source
 ```bash
 # Clone the repository
-git clone [repository-url]
-cd bisection-method-root-finder
+git clone https://github.com/MyCompilerHatesMe/BolzanoRoot.git
+cd BolzanoRoot
 
 # Build with Gradle
 ./gradlew build
