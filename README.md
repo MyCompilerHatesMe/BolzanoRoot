@@ -134,7 +134,7 @@ The application uses a two-phase approach:
 
 ### Important Notes
 - If no sign change is found in your specified range, the program will report "No continuity in range"
-- The tolerance is currently hardcoded to 0, but due to precision limitations, it will still not run for all of the iterations.
+- The tolerance is currently hardcoded to 0.0000000000001.
 - Smaller step values increase the chance of finding roots but make the initial search slower
 
 ## Usage Example
