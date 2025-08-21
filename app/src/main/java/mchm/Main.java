@@ -108,18 +108,18 @@ public class Main {
     }
 
 
-    private static double evaluate(double f){
+    static double evaluate(double f){
         expr.setVariable(String.valueOf(varName), f);
         return expr.evaluate();
     }
-    private static double[] findLimits(double step, double start, double end){
+    static double[] findLimits(double step, double start, double end){
 
         double prev = start;
         double fPrev = evaluate(start);
 
         for(double i = start; i <= end; i+=step){
             double fCurr = evaluate(i);
-            if(fPrev*fCurr < 0) return new double[]{prev, i};
+            if(fPrev*fCurr < 0) return new double[]{prev, i}; //lower, upper
             prev = i;
             fPrev = fCurr;
         }
