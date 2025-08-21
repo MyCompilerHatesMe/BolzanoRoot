@@ -138,7 +138,7 @@ class Panel extends JPanel{
         double[] continuityLimits = Main.findLimits(step, lowerLimit, upperLimit);
         if(continuityLimits == null)  return new double[]{0, 0, 3};
 
-        double[] details = Main.findRoot(iterations, 0.000000000001, continuityLimits[1], continuityLimits[0]);
+        double[] details = Main.findRoot(iterations, 0, continuityLimits[1], continuityLimits[0]);
 
         if(details == null) return new double[]{0, 0, 4};
 
