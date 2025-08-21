@@ -193,11 +193,8 @@ This project uses **Gradle** as its build system:
 # Compile
 ./gradlew compileJava
 
-# Run tests
-./gradlew test
-
 # Build fat JAR
-./gradlew shadowJar
+./gradlew fatJar
 
 # Run application
 ./gradlew run
