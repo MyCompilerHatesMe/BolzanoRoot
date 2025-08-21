@@ -12,8 +12,9 @@ A Java application that finds roots of continuous functions using the bisection 
 ## Quick Start
 
 ### Option 1: Download Pre-built Release
-1. Download `app-fat.jar` and `run.bat` from the [Releases](../../releases) page
-2. Run the application:
+1. Download `BolzanoReleases.7z` from the [Releases](../../releases) page
+2. Extract the archive into any directory
+3. Run the application:
    - **Windows**: Double-click `run.bat` or run `java -jar app-fat.jar`
    - **Linux/Mac**: `java -jar app-fat.jar`
 
