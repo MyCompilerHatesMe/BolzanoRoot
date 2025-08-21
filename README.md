@@ -170,8 +170,8 @@ This project uses **Gradle** as its build system:
 
 ## Requirements
 
-- **Java**: JDK 8 or higher
-- **Gradle**: 6.0+ (wrapper included)
+- **Java**: JDK 21 or higher
+- **Gradle**: 9.0+ (wrapper included)
 - **Dependencies**: exp4j library (automatically managed by Gradle)
 
 ## Algorithm Details
