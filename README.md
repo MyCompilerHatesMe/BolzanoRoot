@@ -2,6 +2,33 @@
 
 A Java application that finds roots of continuous functions using the bisection method, based on Bolzano's theorem (Intermediate Value Theorem). This tool allows you to input mathematical expressions and automatically locate their first zero within a specified interval.
 
+## Table of Contents
+
+- [Features](#features)
+- [Requirements](#requirements)
+- [Quick Start](#quick-start)
+  - [Option 1: Download Pre-built Release](#option-1-download-pre-built-release)
+  - [Option 2: Build from Source](#option-2-build-from-source)
+- [Supported Mathematical Functions](#supported-mathematical-functions)
+  - [Basic Arithmetic Operators](#basic-arithmetic-operators)
+  - [Trigonometric Functions](#trigonometric-functions)
+  - [Exponential and Logarithmic Functions](#exponential-and-logarithmic-functions)
+  - [Utility Functions](#utility-functions)
+  - [Constants](#constants)
+  - [Example Expressions](#example-expressions)
+- [How It Works](#how-it-works)
+  - [Phase 1: Find Sign Change Interval](#phase-1-find-sign-change-interval)
+  - [Phase 2: Bisection Method](#phase-2-bisection-method)
+  - [Mathematical Foundation](#mathematical-foundation)
+  - [Important Notes](#important-notes)
+- [Usage Example](#usage-example)
+  - [Input Parameters Explained](#input-parameters-explained)
+- [Build System](#build-system)
+- [System Requirements](#system-requirements)
+- [Algorithm Details](#algorithm-details)
+  - [Time Complexity](#time-complexity)
+- [References](#references)
+
 ## Features
 
 - **Robust Root Finding**: Implements the bisection method with configurable precision
@@ -9,14 +36,20 @@ A Java application that finds roots of continuous functions using the bisection 
 - **Interactive Interface**: Easy-to-use command-line interface
 - **Bolzano's Theorem**: Guarantees convergence for continuous functions with sign changes
 
+## Requirements
+
+- Java 21 or higher
+- No additional setup required
+
 ## Quick Start
 
 ### Option 1: Download Pre-built Release
 1. Download `BolzanoReleases.7z` from the [Releases](../../releases) page
-2. Extract the archive into any directory
-3. Run the application:
-   - **Windows**: Double-click `run.bat` or run `java -jar app-fat.jar`
-   - **Linux/Mac**: `java -jar app-fat.jar`
+2. Extract the archive
+3. **Run the application:**
+   - Double-click `app-fat.jar`, OR
+   - **Windows**: Double-click `run.bat` 
+   - **Any platform**: `java -jar app-fat.jar` in terminal
 
 ### Option 2: Build from Source
 ```bash
@@ -101,7 +134,7 @@ The application uses a two-phase approach:
 
 ### Important Notes
 - If no sign change is found in your specified range, the program will report "No continuity in range"
-- The tolerance is currently hardcoded to 0, so the algorithm runs for exactly the number of iterations specified
+- The tolerance is currently hardcoded to 0, but due to precision limitations, it will still not run for all of the iterations.
 - Smaller step values increase the chance of finding roots but make the initial search slower
 
 ## Usage Example
@@ -168,11 +201,10 @@ This project uses **Gradle** as its build system:
 ./gradlew run
 ```
 
-## Requirements
+## System Requirements
 
-- **Java**: JDK 21 or higher
-- **Gradle**: 9.0+ (wrapper included)
-- **Dependencies**: exp4j library (automatically managed by Gradle)
+- Java 21 or higher
+- Gradle 9.0+ (wrapper included - no manual installation needed)
 
 ## Algorithm Details
 
@@ -185,8 +217,6 @@ The bisection method guarantees:
 ### Time Complexity
 - **Iterations**: ⌈log₂((b-a)/ε)⌉ where ε is the tolerance
 - **Per Iteration**: O(1) for simple functions
-
-
 
 ## References
 
