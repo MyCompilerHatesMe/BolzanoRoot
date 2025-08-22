@@ -33,7 +33,7 @@ A Java application that finds roots of continuous functions using the bisection 
 
 - **Robust Root Finding**: Implements the bisection method with configurable precision
 - **Expression Parser**: Uses exp4j library for parsing and evaluating mathematical expressions
-- **Interactive Interface**: Easy-to-use command-line interface
+- **Interactive Interface**: Easy-to-use command-line interface/GUI
 - **Bolzano's Theorem**: Guarantees convergence for continuous functions with sign changes
 
 ## Requirements
